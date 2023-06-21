@@ -1,0 +1,46 @@
+{
+    "welcomeHeading": "Welcome",
+    "welcomeNotice": "Please note that this app requires some support from the Stud.IP system to work.\nIf you can't log in with a username and password, or would like to use OAuth to log in, please contact your Stud.IP administrator as well.\nThere will be links to the support page of your Stud.IP and a preformulated text for the administrator in the appropriate places in the app.",
+    "welcomeUnderstand": "I understand",
+    "welcomeLoginHeading": "Login",
+    "welcomeLoginText": "You have several methods to log into you Stud.IP in the app:\n",
+    "next": "Next",
+    "authUsernamePassword": "Username + password",
+    "authUsernamePasswordDesc": "Your username and password are stored in the app and used to log in and automatically refresh your login in the background. On desktop, your credentials are stored insecure in a file, on mobile securely in private app storage.",
+    "authUsernamePasswordUnsaved": "Username + password, unsaved",
+    "authUsernamePasswordUnsavedDesc": "The same as username + password, but your credentials are only kept in memory and never get written to storage. You'll have to log in each time you start the app, but your credentials are secure, even on desktop.",
+    "authCookie": "Cookie",
+    "authCookieDesc": "This will open an integrated browser window for you to log in to the Stud.IP website. After logging in, the app extracts the session cookie and uses it. You'll have to log in again when the session expires. This should work even for Stud.IP systems with custom login systems and without OAuth support for this app.",
+    "authOAuth": "OAuth",
+    "authOAuthDesc": "This opens Stud.IP in your browser, where you can authorize the app. You'll have to log in if you aren't but the app never gets your login credentials. You'll stay logged in in the app as long as you don't revoke the access. This is the preferred login method, but requires support for this app by your Stud.IP.",
+    "loginMethods": "Login Methods",
+    "accountManagement": "Account Management",
+    "accountManagementText": "You can connect multiple accounts in the App. To connect a new account or remove one, use the app settings icon in the upper right corner. After this introduction, you will be brought directly to the login screen though.",
+    "appSettingsHeading": "App Settings",
+    "appSettingsDesc": "Here you can set some global app settings before continuing.",
+    "themeText": "App theme",
+    "themeNative": "Platform default (fit into other apps on the device)",
+    "themeMaterial": "Material Design 3 (Android-like)",
+    "themeCupertino": "Cupertino (iOS-like)",
+    "themeMacOS": "MacOS",
+    "themeFluent": "Fluent (Windows-like)",
+    "themeStudip": "Stud.IP (like the Stud.IP website)",
+    "navigationHeading": "Navigation"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
