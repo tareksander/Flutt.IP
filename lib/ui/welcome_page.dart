@@ -226,7 +226,7 @@ class WelcomePage3 extends ConsumerWidget {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       AppLocalizations.of(context)!.themeText,
-                      style: TextStyle(fontSize: 18),
+                      style: const TextStyle(fontSize: 18),
                     )),
                 theme.when(
                     data: (t) => Column(

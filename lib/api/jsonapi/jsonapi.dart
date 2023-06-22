@@ -19,33 +19,36 @@ class JSONAPIConverter implements Converter {
 
   @override
   FutureOr<Response<BodyType>> convertResponse<BodyType, InnerType>(Response response) {
-    if (response.headers["Content-Type"] != "application/vnd.api+json") {
-      if (BodyType is Uint8List?) {
+    if (response.headers["content-type"] != "application/vnd.api+json") {
+      if (BodyType == Uint8List) {
         return response.copyWith(body: response.bodyBytes as BodyType);
       }
-      return response.copyWith(body: null);
+      return Response(response.base, null, error: response.error);
     }
-    if (BodyType is List?) {
+    if (BodyType == List<InnerType>) {
       try {
         var json = (jsonDecode(response.bodyString) as Map<String, dynamic>)["data"];
         var list = List<InnerType>.empty(growable: true);
         for (var v in json) {
+          print(v);
           var vj = v as Map<String, dynamic>;
           vj.addAll(vj["attributes"]);
-          var it = Decoder.fromJson<InnerType>(json);
+          var it = Decoder.fromJson<InnerType>(vj);
           if (it != null) list.add(it);
         }
-        return response.copyWith(body: list as BodyType);
+        return Response(response.base, list as BodyType);
       } catch (err) {
-        return response.copyWith(body: null);
+        print(err);
+        return Response(response.base, null, error: response.error);
       }
     } else {
       try {
         var json = (jsonDecode(response.bodyString) as Map<String, dynamic>)["data"];
         json.addAll(json["attributes"]);
-        return response.copyWith(body: Decoder.fromJson<BodyType>(json));
+        return Response(response.base, Decoder.fromJson<BodyType>(json));
       } catch (err) {
-        return response.copyWith(body: null);
+        print(err);
+        return Response(response.base, null, error: response.error);
       }
     }
   }

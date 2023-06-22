@@ -1,4 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:drift/drift.dart' as drift;
+import 'dart:convert';
 
 part 'message.g.dart';
 
@@ -15,15 +17,20 @@ class Message {
   @JsonKey(readValue: _readSender, includeToJson: false)
   String sender;
 
-  // TODO recipients list, if needed
+  @JsonKey(readValue: _readRecipients, includeToJson: false)
+  List<String> recipients;
 
   factory Message.fromJSON(Map<String, dynamic> data) => _$MessageFromJson(data);
 
 
   Message(this.id, this.subject, this.message, this.mkdate, this.priority,
-      this.isRead, this.sender);
+      this.isRead, this.sender, this.recipients);
 
   static Object? _readSender(Map<dynamic, dynamic> data, String key) {
     return data["relationships"]["sender"]["data"]["id"];
+  }
+
+  static Object? _readRecipients(Map<dynamic, dynamic> data, String key) {
+    return (data["relationships"]["recipients"]["data"] as List<dynamic>).map((e) => e["id"]).toList();
   }
 }

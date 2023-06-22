@@ -50,6 +50,7 @@ dependencies:
   go_router: ^8.0.5
   # API requests
   chopper: ^6.1.4
+  http: ^1.0.0
   json_annotation: ^4.8.1
 
 dev_dependencies:

@@ -9,7 +9,8 @@ part 'users.chopper.dart';
 
 @ChopperApi(baseUrl: "jsonapi.php/v1/users")
 abstract class Users extends ChopperService {
-
+  
+  static Users create(ChopperClient c) => _$Users(c);
   
   @Get(path: "/me", headers: apiHeaders)
   Future<Response<User?>> me();
@@ -24,7 +25,7 @@ abstract class Users extends ChopperService {
   Future<Response<List<User>?>> search({
     @Query("page[offset]") int offset = 0,
     @Query("page[limit]") int limit = 100,
-    @Query("filter[search]") String name,
+    @Query("filter[search]") required String name,
   });
 
   @Get(path: "/{id}", headers: apiHeaders)
